@@ -2,8 +2,4 @@ language: java
 rvm: 2.2.2
 sudo: false
 
-before_install:
-  - gem install hiptest-publisher
-  - hiptest-publisher -c cucumber-java.conf --only=features
-
 script: mvn clean test
