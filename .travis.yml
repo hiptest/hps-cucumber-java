@@ -6,10 +6,9 @@ before_install:
   - rvm use 2.2
   - gem install hiptest-publisher
   - "hiptest-publisher -c cucumber-java.conf --only=features,step_definitions --test-run-id=10248"
-  - "mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V"
 
 script:
-  - mvn test -B
+  - mvn test
 
 after_script:
-  - hiptest-publisher -c cucumber-java.conf --push=target/surefire-reports/TEST-com.coffeemachine.CoffeeMachineTest.xml --test-run-id=10248
+  - hiptest-publisher -c cucumber-java.conf --push=target/cuke-results-junit.xml --test-run-id=10248

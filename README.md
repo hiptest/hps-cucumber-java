@@ -32,9 +32,8 @@ Run tests
 
 To build the project and run the tests, use the following command:
 
-    mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-    mvn test -B
+    mvn test
 
 The SUT implementation can be seen in [``src/main/java/com/coffeemachine/CoffeeMachine.java``](https://github.com/hiptest/hps-cucumber-java/blob/master/src/main/java/com/coffeemachine/CoffeeMachine.java)
 
-The test report is generated in ```target/surefire-reports/TEST-com.coffeemachine.CoffeeMachineTest.xml```
+The test report is generated in ```target/cuke-results-junit.xml```
