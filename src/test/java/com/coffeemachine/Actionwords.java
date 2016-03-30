@@ -6,6 +6,10 @@ import static junit.framework.Assert.assertTrue;
 
 public class Actionwords {
     public CoffeeMachine sut = new CoffeeMachine();
+    public boolean handleWater = false;
+    public boolean handleBeans = false;
+    public boolean handleGrounds = false;
+
 
     public void iStartTheCoffeeMachine() {
         iStartTheCoffeeMachine("en");
@@ -51,6 +55,18 @@ public class Actionwords {
         while ((coffeeNumber > 0)) {
             iTakeACoffee();
             coffeeNumber = coffeeNumber - 1;
+
+            if (handleWater) {
+                iFillTheWaterTank();
+            }
+
+            if (handleBeans) {
+                iFillTheBeansTank();
+            }
+
+            if (handleGrounds) {
+                iEmptyTheCoffeeGrounds();
+            }
         }
     }
 
@@ -72,5 +88,32 @@ public class Actionwords {
         iEmptyTheCoffeeGrounds();
         iFillTheWaterTank();
         iTakeACoffee();
+    }
+
+    public void iHandleWaterTank() {
+        handleWater = true;
+    }
+
+    public void iHandleBeans() {
+        handleBeans = true;
+    }
+
+    public void iHandleCoffeeGrounds() {
+        handleGrounds = true;
+    }
+
+    public void iHandleEverythingExceptTheWaterTank() {
+        iHandleCoffeeGrounds();
+        iHandleBeans();
+    }
+
+    public void iHandleEverythingExceptTheBeans() {
+        iHandleWaterTank();
+        iHandleCoffeeGrounds();
+    }
+
+    public void iHandleEverythingExceptTheGrounds() {
+        iHandleWaterTank();
+        iHandleBeans();
     }
 }

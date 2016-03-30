@@ -35,7 +35,7 @@ public class StepDefinitions {
         actionwords.iTakeACoffee();
     }
 
-    @Given("^I empty the coffee grounds$")
+    @When("^I empty the coffee grounds$")
     public void iEmptyTheCoffeeGrounds() {
         actionwords.iEmptyTheCoffeeGrounds();
     }
@@ -50,7 +50,7 @@ public class StepDefinitions {
         actionwords.iFillTheWaterTank();
     }
 
-    @When("^I take \"(.*)\" coffees$")
+    @Given("^I take \"(.*)\" coffees$")
     public void iTakeCoffeeNumberCoffees(int coffeeNumber) {
         actionwords.iTakeCoffeeNumberCoffees(coffeeNumber);
     }
@@ -60,13 +60,33 @@ public class StepDefinitions {
         actionwords.theCoffeeMachineIsStarted();
     }
 
-    @When("^fifty coffees have been taken without filling the tank$")
-    public void fiftyCoffeesHaveBeenTakenWithoutFillingTheTank() {
-        actionwords.fiftyCoffeesHaveBeenTakenWithoutFillingTheTank();
+    @Given("^I handle everything except the water tank$")
+    public void iHandleEverythingExceptTheWaterTank() {
+        actionwords.iHandleEverythingExceptTheWaterTank();
     }
 
-    @When("^thirty eight coffees are taken without filling beans$")
-    public void thirtyEightCoffeesAreTakenWithoutFillingBeans() {
-        actionwords.thirtyEightCoffeesAreTakenWithoutFillingBeans();
+    @Given("^I handle water tank$")
+    public void iHandleWaterTank() {
+        actionwords.iHandleWaterTank();
+    }
+
+    @Given("^I handle beans$")
+    public void iHandleBeans() {
+        actionwords.iHandleBeans();
+    }
+
+    @Given("^I handle coffee grounds$")
+    public void iHandleCoffeeGrounds() {
+        actionwords.iHandleCoffeeGrounds();
+    }
+
+    @Given("^I handle everything except the beans$")
+    public void iHandleEverythingExceptTheBeans() {
+        actionwords.iHandleEverythingExceptTheBeans();
+    }
+
+    @Given("^I handle everything except the grounds$")
+    public void iHandleEverythingExceptTheGrounds() {
+        actionwords.iHandleEverythingExceptTheGrounds();
     }
 }
