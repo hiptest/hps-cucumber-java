@@ -1,8 +1,14 @@
 package com.coffeemachine;
 
+import java.util.Map;
+import java.util.HashMap;
+import java.util.List;
+
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
+
+import cucumber.api.DataTable;
 
 public class Actionwords {
     public CoffeeMachine sut = new CoffeeMachine();
@@ -11,11 +17,11 @@ public class Actionwords {
     public boolean handleGrounds = false;
 
 
-    public void iStartTheCoffeeMachine() {
-        iStartTheCoffeeMachine("en");
+    public void iStartTheCoffeeMachineUsingLanguageLang() {
+        iStartTheCoffeeMachineUsingLanguageLang("en");
     }
 
-    public void iStartTheCoffeeMachine(String lang) {
+    public void iStartTheCoffeeMachineUsingLanguageLang(String lang) {
         sut.start(lang);
     }
 
@@ -71,7 +77,7 @@ public class Actionwords {
     }
 
     public void theCoffeeMachineIsStarted() {
-        iStartTheCoffeeMachine();
+        iStartTheCoffeeMachineUsingLanguageLang();
     }
 
     public void fiftyCoffeesHaveBeenTakenWithoutFillingTheTank() {
@@ -115,5 +121,24 @@ public class Actionwords {
     public void iHandleEverythingExceptTheGrounds() {
         iHandleWaterTank();
         iHandleBeans();
+    }
+
+    public void displayedMessageIs(String freeText) {
+        messageMessageShouldBeDisplayed(freeText);
+    }
+
+    public void iSwitchToSettingsMode() {
+        sut.showSettings();
+    }
+
+    public void settingsShouldBe(DataTable datatable) {
+        List<List<String>> rawTable = datatable.raw();
+        Map<String,String> settings = new HashMap<String, String>();
+
+        settings.put(rawTable.get(0).get(0), rawTable.get(0).get(1));
+        settings.put(rawTable.get(1).get(0), rawTable.get(1).get(1));
+
+
+        assertEquals(settings, sut.getSettings());
     }
 }

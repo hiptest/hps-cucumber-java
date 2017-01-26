@@ -1,13 +1,14 @@
 package com.coffeemachine;
 
+import cucumber.api.DataTable;
 import cucumber.api.java.en.*;
 
 public class StepDefinitions {
     public Actionwords actionwords = new Actionwords();
 
-    @When("^I start the coffee machine \"(.*)\"$")
-    public void iStartTheCoffeeMachine(String lang) {
-        actionwords.iStartTheCoffeeMachine(lang);
+    @When("^I start the coffee machine using language \"(.*)\"$")
+    public void iStartTheCoffeeMachineUsingLanguageLang(String lang) {
+        actionwords.iStartTheCoffeeMachineUsingLanguageLang(lang);
     }
 
     @When("^I shutdown the coffee machine$")
@@ -88,5 +89,20 @@ public class StepDefinitions {
     @Given("^I handle everything except the grounds$")
     public void iHandleEverythingExceptTheGrounds() {
         actionwords.iHandleEverythingExceptTheGrounds();
+    }
+
+    @Then("^displayed message is:$")
+    public void displayedMessageIs(String freeText) {
+        actionwords.displayedMessageIs(freeText);
+    }
+
+    @When("^I switch to settings mode$")
+    public void iSwitchToSettingsMode() {
+        actionwords.iSwitchToSettingsMode();
+    }
+
+    @Then("^settings should be:$")
+    public void settingsShouldBe(DataTable datatable) {
+        actionwords.settingsShouldBe(datatable);
     }
 }
