@@ -12,11 +12,13 @@ public class CoffeeMachine {
     private int tankContent;
     private int beansContent;
     private int groundsContent;
+    private int countdownToDescale;
     private String lang;
     private String waterHardness = "2";
     private String grinder = "medium";
 
     public CoffeeMachine() {
+        descale();
         fillTank();
         fillBeans();
         emptyGrounds();
@@ -54,6 +56,7 @@ public class CoffeeMachine {
         if (tankContent <= 10) return i18n("tank");
         if (beansContent < 3) return i18n("beans");
         if (groundsContent >= 30) return i18n("grounds");
+        if (isDescalingNeeded()) return i18n("descale");
         return i18n("ready");
     }
 
@@ -65,6 +68,7 @@ public class CoffeeMachine {
             tankContent -= 1;
             beansContent -= 1;
             groundsContent += 1;
+            countdownToDescale -= 1;
         }
     }
 
@@ -80,6 +84,14 @@ public class CoffeeMachine {
         groundsContent = 0;
     }
 
+    public void descale() {
+        countdownToDescale = 500;
+    }
+
+    public boolean isDescalingNeeded() {
+        return countdownToDescale <= 0;
+    }
+
     private String i18n(String key) {
         Map<String,String> map = new HashMap<String, String>();
         if (lang.equals("fr")) {
@@ -88,14 +100,15 @@ public class CoffeeMachine {
             map.put("grounds", "Vider marc");
             map.put("ready", "Pret");
             map.put("settings", "Configurer:\n - 1: durete de l'eau\n - 2: mouture");
+            map.put("descale", "Detartage requis");
         } else {
             map.put("tank", "Fill tank");
             map.put("beans", "Fill beans");
             map.put("grounds", "Empty grounds");
             map.put("ready", "Ready");
             map.put("settings", "Settings:\n - 1: water hardness\n - 2: grinder");
+            map.put("descale", "Descaling is needed");
         }
         return map.get(key);
     }
-
 }
