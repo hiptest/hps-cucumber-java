@@ -47,7 +47,7 @@
                         <classpath />
                         <argument>cucumber.api.cli.Main</argument>
                         <argument>--plugin</argument>
-                        <argument>junit:${project.build.directory}/cuke-results-junit.xml</argument>
+                        <argument>json:${project.build.directory}/cuke-results.json</argument>
                         <argument>--glue</argument>
                         <argument>com.coffeemachine</argument>
                         <argument>--strict</argument>

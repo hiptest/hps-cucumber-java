@@ -11,4 +11,4 @@ script:
   - mvn test
 
 after_script:
-  - hiptest-publisher -c cucumber-java.conf --token=$SECRET_TOKEN --push=target/cuke-results-junit.xml --test-run-id=10248
+  - hiptest-publisher -c cucumber-java.conf --token=$SECRET_TOKEN --push=target/cuke-results.json --test-run-id=10248
