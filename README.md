@@ -36,4 +36,5 @@ To build the project and run the tests, use the following command:
 
 The SUT implementation can be seen in [``src/main/java/com/coffeemachine/CoffeeMachine.java``](https://github.com/hiptest/hps-cucumber-java/blob/master/src/main/java/com/coffeemachine/CoffeeMachine.java)
 
-The test report is generated in ```target/cuke-results-junit.xml```
+The test report is generated in ```target/cuke-results.json```
+
