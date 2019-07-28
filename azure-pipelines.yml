@@ -20,7 +20,11 @@ steps:
 - script: sudo apt-get install zlib1g-dev
 - script: mvn clean install
 - script: gem install hiptest-publisher
-- script: hiptest-publisher -c cucumber-java.conf --token=248811095536630189226569748169524069011398990388018621921 --only=tests --test-run-id=136402
+- script: hiptest-publisher -c cucumber-java.conf --only=features,step_definitions
+  displayName: 'Update the tests'
+- script: hiptest-publisher -c cucumber-java.conf --show-actionwords-diff-as-json
+  displayName: 'Check if actionwords have been created, updated or deleted. If so you must stop your build to update your tests'
+- script: hiptest-publisher -c cucumber-java.conf --token=248811095536630189226569748169524069011398990388018621921 --test-run-id=136402
   displayName: 'Install hiptest-publisher and fetch UIDs in each scenario included in your test run'
 - script: mvn test 
   displayName: 'Build tests'
