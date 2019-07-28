@@ -20,10 +20,10 @@ steps:
 - script: sudo apt-get install zlib1g-dev
 - script: mvn clean install
 - script: gem install hiptest-publisher
-- script: hiptest-publisher -c cucumber-java.conf --token=7381332853816135421950979580697335743195137974720371894 --only=tests --test-run-id=283351
+- script: hiptest-publisher -c cucumber-java.conf --token=248811095536630189226569748169524069011398990388018621921 --only=tests --test-run-id=136402
   displayName: 'Install hiptest-publisher and fetch UIDs in each scenario included in your test run'
 - script: mvn test 
   displayName: 'Build tests'
-- script: hiptest-publisher -c cucumber-java.conf --token=7381332853816135421950979580697335743195137974720371894 -p "target/cuke-results.json" --test-run-id=283351
+- script: hiptest-publisher -c cucumber-java.conf --token=248811095536630189226569748169524069011398990388018621921 -p "target/cuke-results.json" --test-run-id=136402
   displayName: 'Push test results file to HipTest'
 
