@@ -30,9 +30,9 @@ steps:
   displayName: 'Update the tests'
 - script: hiptest-publisher -c cucumber-java.conf --token=$(project_token) --show-actionwords-diff-as-json
   displayName: 'Check if actionwords have been created, updated or deleted'
-- script: hiptest-publisher -c cucumber-java.conf --token=--token=$(project_token) --test-run-id=$(test_run_id)
+- script: hiptest-publisher -c cucumber-java.conf --token=$(project_token) --test-run-id=$(test_run_id)
   displayName: 'Install hiptest-publisher and fetch UIDs in each scenario included in your test run'
 - script: mvn test 
   displayName: 'Build tests'
-- script: hiptest-publisher -c cucumber-java.conf --token=--token=$(project_token) -p "target/cuke-results.json" --test-run-id=$(test_run_id)
+- script: hiptest-publisher -c cucumber-java.conf --token=$(project_token) -p "target/cuke-results.json" --test-run-id=$(test_run_id)
   displayName: 'Push the test results file to HipTest'
