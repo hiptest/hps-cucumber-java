@@ -20,7 +20,7 @@ steps:
 - script: sudo apt-get install zlib1g-dev
 - script: mvn clean install
 - script: gem install hiptest-publisher
-- script: hiptest-publisher -c cucumber-java.conf --only=features,step_definitions
+- script: hiptest-publisher -c cucumber-java.conf --token=248811095536630189226569748169524069011398990388018621921 --only=features,step_definitions
   displayName: 'Update the tests'
 - script: hiptest-publisher -c cucumber-java.conf --show-actionwords-diff-as-json
   displayName: 'Check if actionwords have been created, updated or deleted'
