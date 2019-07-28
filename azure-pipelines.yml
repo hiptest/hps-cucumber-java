@@ -1,0 +1,29 @@
+# Maven
+# Build your Java project and run tests with Apache Maven.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: UseRubyVersion@0
+  inputs:
+    versionSpec: '>= 2.5'
+
+- script: sudo apt-get update
+- script: sudo apt-get install -y openjfx
+- script: sudo apt-get install -y ruby-dev
+- script: sudo apt-get install zlib1g-dev
+- script: mvn clean install
+- script: gem install hiptest-publisher
+- script: hiptest-publisher -c cucumber-java.conf --token=7381332853816135421950979580697335743195137974720371894 --only=tests --test-run-id=283351
+  displayName: 'Install hiptest-publisher and fetch UIDs in each scenario included in your test run'
+- script: mvn test 
+  displayName: 'Build tests'
+- script: hiptest-publisher -c cucumber-java.conf --token=7381332853816135421950979580697335743195137974720371894 -p "target/cuke-results.json" --test-run-id=283351
+  displayName: 'Push test results file to HipTest'
+
