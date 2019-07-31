@@ -6,7 +6,7 @@ install_prerequisites:
 .PHONY: install_prerequisites
 
 generate_tests:
-	hiptest-publisher -c cucumber-groovy.conf -t "$(SECRET_TOKEN)" --without=actionwords
+	hiptest-publisher -c cucumber-java.conf -t "$(SECRET_TOKEN)" --without=actionwords
 .PHONY: generate_tests
 
 test: install_prerequisites
