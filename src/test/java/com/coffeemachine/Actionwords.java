@@ -8,7 +8,7 @@ import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
 
-import cucumber.api.DataTable;
+import io.cucumber.datatable.DataTable;
 
 public class Actionwords {
     public CoffeeMachine sut = new CoffeeMachine();
