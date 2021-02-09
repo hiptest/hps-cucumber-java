@@ -7,17 +7,17 @@ Feature: Water
     Given the coffee machine is started
     And I handle everything except the water tank
 
-  Scenario: Message "Fill water tank" is displayed after 50 coffees are taken
+  Scenario: Message "Fill water tank" is displayed after 50 coffees are taken (uid:bee4ddde-219b-4779-85d8-310ff33bc38a)
     When I take "50" coffees
     Then message "Fill tank" should be displayed
 
-  Scenario: It is possible to take 10 coffees after the message "Fill water tank" is displayed
+  Scenario: It is possible to take 10 coffees after the message "Fill water tank" is displayed (uid:87685d44-1c6d-4986-a051-51c6a56122a2)
     Given I take "60" coffees
     Then coffee should be served
     When I take a coffee
     Then coffee should not be served
 
-  Scenario: When the water tank is filled, the message disappears
+  Scenario: When the water tank is filled, the message disappears (uid:c1bf7d84-7c5d-4158-838c-f7d915b0e27f)
     Given I take "55" coffees
     When I fill the water tank
     Then message "Ready" should be displayed

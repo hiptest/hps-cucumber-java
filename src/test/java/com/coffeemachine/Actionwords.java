@@ -8,7 +8,7 @@ import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
 
-import cucumber.api.DataTable;
+import io.cucumber.datatable.DataTable;
 
 public class Actionwords {
     public CoffeeMachine sut = new CoffeeMachine();
@@ -132,7 +132,7 @@ public class Actionwords {
     }
 
     public void settingsShouldBe(DataTable datatable) {
-        List<List<String>> rawTable = datatable.raw();
+        List<List<String>> rawTable = datatable.cells();
         Map<String,String> settings = new HashMap<String, String>();
 
         settings.put(rawTable.get(0).get(0), rawTable.get(0).get(1));
