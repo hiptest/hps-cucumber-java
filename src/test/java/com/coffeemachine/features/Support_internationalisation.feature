@@ -7,6 +7,7 @@ Feature: Support internationalisation
     Given the coffee machine is started
     When I shutdown the coffee machine
     Then message "" should be displayed
+    And voilà!
     
   Scenario Outline: Messages are based on language
     # Well, sometimes, you just get a coffee.
